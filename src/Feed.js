@@ -32,6 +32,7 @@ function Feed() {
                     text={post.text}
                     avatar={post.avatar}
                     image={post.image}
+                    like={post.like}
                     />
                 ))}
             </FlipMove>
