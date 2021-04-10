@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { useState,forwardRef } from "react";
 import "./Post.css";
 import { Avatar } from "@material-ui/core";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
@@ -8,7 +8,22 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import PublishIcon from "@material-ui/icons/Publish";
 
 const Post = forwardRef(
-  ({ displayName, username, verified, text, image, avatar }, ref) => {
+
+  ({ displayName, username, verified, text, image, avatar,like }, ref) => {
+
+    const[count,setCount] = useState(0);
+    const colorChange = e => {
+
+      if(e.target.style.color)
+      {
+        e.target.style.color=null
+        setCount(count-1)
+      }
+      else{
+        e.target.style.color="red"
+        setCount(count+1)
+      }
+    }
     return (
       <div className="post" ref={ref}>
         <div className="post__avatar">
@@ -33,7 +48,8 @@ const Post = forwardRef(
           <div className="post__footer">
             <ChatBubbleOutlineIcon fontSize="small" />
             <RepeatIcon fontSize="small" />
-            <FavoriteBorderIcon fontSize="small" />
+            <FavoriteBorderIcon onClick={colorChange} fontSize="small" />
+            <p>{count+like}</p>
             <PublishIcon fontSize="small" />
           </div>
         </div>
