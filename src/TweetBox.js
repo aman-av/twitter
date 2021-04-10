@@ -16,19 +16,20 @@ function TweetBox() {
             verified: true,
             text: tweetMessage,
             image:tweetImage,
-            avatar:"https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/themes/284832/settings_images/rLlCifhXRJiT0RoN2FjK_Logo_roundbackground_black.png"
+            avatar:"https://source.unsplash.com/random/400x200",
+            like:0
 
         });
         setTweetMessage("");
         setTweetImage("");
     };
-
+    
 
     return (
         <div className="tweetBox">
             <form>
                 <div className="tweetBox__input">
-                    <Avatar src="https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/themes/284832/settings_images/rLlCifhXRJiT0RoN2FjK_Logo_roundbackground_black.png"/>
+                    <Avatar src="https://source.unsplash.com/random/400x200"/>
                     <input onChange={(e)=>setTweetMessage(e.target.value)} value={tweetMessage} placeholder="What is happening?" type="text"/>
                     
                 </div>
